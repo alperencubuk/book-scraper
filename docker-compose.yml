@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./config/dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./config/.env
+    volumes:
+      - ./scraper:/app/scraper
+      - ./source:/app/source
+    depends_on:
+      - mongodb
+
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    env_file:
+      - ./config/.env
+    volumes:
+      - ./database:/data/db

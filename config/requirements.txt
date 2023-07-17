@@ -1,0 +1,7 @@
+apscheduler==3.10.1
+fastapi==0.100.0
+motor==3.2.0
+pre-commit==3.3.3
+pydantic-settings==2.0.2
+scrapy==2.9.0
+uvicorn==0.23.0
